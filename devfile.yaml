@@ -23,12 +23,12 @@ components:
   #- name: m2
   #  volume:
   #    size: 1G
-#commands:
-#  - id: build
-#    exec:
-#      component: tools
-#      workingDir: ${PROJECTS_ROOT}/software-orchestration
-#      commandLine: mvn clean install
-#      group:
-#        kind: build
-#        isDefault: true
+commands:
+  - id: build
+    exec:
+      component: tools
+      workingDir: ${PROJECTS_ROOT}/software-orchestration/eclipse-bluechi
+      commandLine: podman buildx build -f .devcontainer/Dockerfile -v $PWD/workspace/workloads:/etc/containers/systemd -v $PWD/../scenarios/smart_trailer/scripts:/workspace/src/smart_trailer/scripts -t esdv 
+      group:
+        kind: build
+        isDefault: true
