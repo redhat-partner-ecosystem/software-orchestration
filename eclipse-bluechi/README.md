@@ -59,7 +59,7 @@ You will need to specify the `--docker-path` option if you are using Podman:
 ```sh
 devcontainer up \
 --workspace-dir . \
---docker-patch /usr/bin/podman
+--docker-pach /usr/bin/podman
 ```
 
 You can now enter into the devcontainer and interact with Eclipse BlueChi:
@@ -89,7 +89,7 @@ quay.io/centos-sig-automotive/autosd:latest
 The container will be running in the background and you can enter into it by running:
 
 ```sh
-docker exect -it esdv /bin/bash
+docker exec -it esdv /bin/bash
 ```
 
 Enter into the devcontainer and interact with BlueChi:
