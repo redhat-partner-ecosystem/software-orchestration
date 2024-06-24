@@ -11,7 +11,7 @@ projects:
 components:
   - name: eclipsesdv-blueprint-software-orchestration
     container:
-      image: quay.io/centos-sig-automotive/autosd:latest
+      image: quay.io/redhat-cop/devspaces-nested-podman:latest
       memoryLimit: '4Gi'
       memoryRequest: '2Gi'
       cpuLimit: '2'
