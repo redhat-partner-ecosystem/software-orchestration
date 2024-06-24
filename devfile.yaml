@@ -11,7 +11,7 @@ projects:
 components:
   - name: eclipsesdv-blueprint-software-orchestration
     container:
-      image: quay.io/redhat-cop/devspaces-nested-podman:latest
+      image: registry.redhat.io/devspaces/udi-rhel8:3.14
       memoryLimit: '4Gi'
       memoryRequest: '2Gi'
       cpuLimit: '2'
