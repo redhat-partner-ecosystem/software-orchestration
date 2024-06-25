@@ -1,0 +1,35 @@
+schemaVersion: 2.2.0
+metadata:
+  name: eclipsesdv-software-orchestration
+projects:
+  - name: eclipsesdv-software-orchestration
+    git:
+      remotes:
+        origin: "https://github.com/redhat-partner-ecosystem/software-orchestration"
+      checkoutFrom:
+        revision: local-dev
+components:
+  - name: eclipsesdv-blueprint-software-orchestration
+    container:
+      #image: registry.redhat.io/devspaces/udi-rhel8:3.14
+      image: image-registry.openshift-image-registry.svc:5000/openshift/autosd-dev:1.0.0
+      memoryLimit: '4Gi'
+      memoryRequest: '2Gi'
+      cpuLimit: '2'
+      cpuRequest: '1'
+      mountSources: true
+      #volumeMounts:
+      #  - name: m2
+      #    path: /home/user/.m2
+  #- name: m2
+  #  volume:
+  #    size: 1G
+commands:
+  - id: build
+    exec:
+      component: tools
+      workingDir: ${PROJECTS_ROOT}/software-orchestration/eclipse-bluechi
+      commandLine: podman buildx build -f .devcontainer/Dockerfile -v $PWD/workspace/workloads:/etc/containers/systemd -v $PWD/../scenarios/smart_trailer/scripts:/workspace/src/smart_trailer/scripts -t esdv 
+      group:
+        kind: build
+        isDefault: true

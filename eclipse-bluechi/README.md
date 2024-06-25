@@ -59,7 +59,7 @@ You will need to specify the `--docker-path` option if you are using Podman:
 ```sh
 devcontainer up \
 --workspace-dir . \
---docker-patch /usr/bin/podman
+--docker-path /usr/bin/podman
 ```
 
 You can now enter into the devcontainer and interact with Eclipse BlueChi:
